@@ -12,3 +12,33 @@
     margin: 5% 15% 1% 15%;
     
 }
+
+.backgroundimage{
+    height: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-image: image("img/landingpage_1.jpg");
+}
+
+.transparten-rect{
+    position: absolute;
+    height: 300px;
+    width: 500px;
+    color: red;
+}
+
+
+.overlay{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+    background: white;
+    opacity: 0.95;
+
+}
