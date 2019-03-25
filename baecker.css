@@ -1,3 +1,14 @@
-._navitem {
+.nav-item{
+    margin: 0% 2% 0% 2%;
+}
+
+.nav-link{
+    font-size: 20px;
+    color: black;
+}
+.red-line{
+    border-top: 1px solid red;
+    width: 70%;
+    margin: 5% 15% 1% 15%;
     
 }
