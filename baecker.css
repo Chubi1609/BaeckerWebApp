@@ -53,11 +53,14 @@
     opacity: 0.75;
     box-sizing: border-box;
     border:2px solid #000000;
+    
    
 }
 
 .borderoverlaybox{
     border:1px solid #000000;
+    border-right: none;
+    border-bottom: none;
 }
 
 .footer-color{
