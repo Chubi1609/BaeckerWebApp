@@ -15,14 +15,14 @@
     margin: 0px auto;
 }
 .red-line{
-    border-top: 1px solid rgb(134, 25, 35);
+    border-top: 2px solid rgb(134, 25, 35);
     width: 70%;
     margin: 3% 10% 0% 10%;
     
 }
 
 .red-line-selected{
-    border-top: 3px solid rgb(134, 25, 35);
+    border-top: 5px solid rgb(134, 25, 35);
     width: 10%;
     margin: 0% 10% 0% 10%;
 
@@ -37,8 +37,9 @@
     float: none;
 }
 
-
-
+.introcontainer{
+    height: 100vh;
+}
 .overlay{
     position: absolute;
     width: 50%;
@@ -50,11 +51,18 @@
     transform: translate(-50%, -50%);
     background: white;
     opacity: 0.75;
-    border: 4px solid black;
+    box-sizing: border-box;
+    border:2px solid #000000;
+   
+}
 
+.borderoverlaybox{
+    border:1px solid #000000;
 }
 
 .footer-color{
-    background-color: rgb(134, 25, 35);   
+    background-color: rgb(134, 25, 35);
+    width: 100%;
+    height: 10vh;  
 }
 
