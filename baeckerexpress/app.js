@@ -9,7 +9,7 @@ var expresshandebelbars = require('express-handlebars');
 var mogoose = require('mongoose');
 var app = express();
 
-mogoose.connect('localhost:27017/shopping‚')
+mogoose.connect('mongodb://localhost:27017/shopping');
 // view engine setup
 app.engine('.hbs',expresshandebelbars({defaultLayout:'layout',extname:'.hbs'}));
 app.set('view engine', '.hbs');

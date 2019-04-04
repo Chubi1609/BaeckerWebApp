@@ -8,6 +8,24 @@ var   products = [
         title: 'Brot',
         description: 'lorem',
         price: 10
+    }),
+    new Product({
+      imagePath: 'https://www.gutekueche.at/img/rezept/33932/salzstangerl.jpg',
+      title: 'Salzstangerl',
+      description: 'lorem',
+      price: 5
+    }),
+    new Product({
+      imagePath: 'https://images.lecker.de/,id=8ca90253,b=lecker,w=610,cg=c.jpg',
+      title: 'Kuchen',
+      description: 'lorem',
+      price: 10
+    }),
+    new Product({
+      imagePath: 'https://thebusybaker.ca/wp-content/uploads/2018/08/best-ever-greek-yogurt-chocolate-chip-muffins-fbig3.jpg',
+      title: 'Muffin',
+      description: 'lorem',
+      price: 10
     })
 ];
 
