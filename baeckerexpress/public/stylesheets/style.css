@@ -3,6 +3,13 @@
   padding: 0px;
 }
 
+#logiimagebackground{
+  background-image: url("../images/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
 
 .nav-link{
   font-size: 20px;
