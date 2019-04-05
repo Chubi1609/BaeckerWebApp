@@ -7,7 +7,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var expresshandebelbars = require('express-handlebars');
 var mogoose = require('mongoose');
+var session = require('express-session');
 var app = express();
+
 
 mogoose.connect('mongodb://localhost:27017/shopping');
 // view engine setup
@@ -18,6 +20,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({secret:'secret',resave: false, saveUninitialized: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
