@@ -11,7 +11,13 @@ var session = require('express-session');
 var app = express();
 
 
-mogoose.connect('mongodb://localhost:27017/shopping');
+mogoose.connect('mongodb://213.202.228.115:27017/shopping').then(() => {
+console.log("Connected to Database");
+}).catch((err) => {
+    console.log("Not Connected to Database ERROR! ", err);
+});
+
+
 // view engine setup
 app.engine('.hbs',expresshandebelbars({defaultLayout:'layout',extname:'.hbs'}));
 app.set('view engine', '.hbs');
@@ -22,7 +28,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({secret:'secret',resave: false, saveUninitialized: false}));
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/', indexRouter);
 
 
