@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var passport = require('passport');
 var indexRouter = require('./routes/index');
 var expresshandebelbars = require('express-handlebars');
 var mogoose = require('mongoose');
@@ -21,12 +21,16 @@ console.log("Connected to Database");
 // view engine setup
 app.engine('.hbs',expresshandebelbars({defaultLayout:'layout',extname:'.hbs'}));
 app.set('view engine', '.hbs');
-
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({secret:'secret',resave: false, saveUninitialized: false}));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 
