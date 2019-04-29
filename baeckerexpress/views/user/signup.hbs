@@ -27,6 +27,14 @@
  			<hr>
 			<div class="row">
 				<div class="col-md-5">
+					{{#if hasError}}
+						<div class="alert alert-danger">
+							{{#each messages}}
+								<p>{{this}}</p>
+							{{/each}}
+
+						</div>
+					{{/if}}
  					<form role="form" method="post" action="/user/signup">
 						<fieldset>							
 							<p class="text-uppercase pull-center"> SIGN UP.</p>	

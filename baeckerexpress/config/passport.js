@@ -12,7 +12,26 @@ passport.deserializeUser()(function(email,done){
     })
 });
 passport.use('local.signup', new local_strategy({
+    usernameField: 'email',
+    passwordField: 'password',
+    passReqToCallback: true
     
-},function(){
-
-}));
+},function(req, email, password, done){
+    user.findOne({'email':email}, function(err, user){
+        if(err){
+            return done(err);
+        }
+        if(user){
+            return done(null, false, {message: 'Email is already in use.'});    
+        }
+        var newUser = new user();
+        newUser.email = email;
+        newUser.password = newUse.encryptPassword(password);
+        newUser.save(function(err, result) {
+            if(err){
+                return done(err);
+            }
+            return done(null, newUser);
+        });
+    
+    }));

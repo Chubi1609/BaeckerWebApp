@@ -17,6 +17,8 @@ console.log("Connected to Database");
     console.log("Not Connected to Database ERROR! ", err);
 });
 
+require('./config/passport'); //only loading
+
 
 // view engine setup
 app.engine('.hbs',expresshandebelbars({defaultLayout:'layout',extname:'.hbs'}));
