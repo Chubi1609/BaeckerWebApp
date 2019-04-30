@@ -4,7 +4,7 @@ var bcrypt = require ('bcrypt-nodejs');
 
 
 
-var userschç = new mongoose.Schema({
+var userschema = new Schema({
     email: {
       type: String,
       unique: true,
@@ -18,15 +18,15 @@ var userschç = new mongoose.Schema({
     salt: String
   });
 
-userschç.methods.encryptPassword = function(password){
+  userschema.methods.encryptPassword = function(password){
   return bcrypt.hashSync(password, bcrypt.genSaltSync(5), null);
 
 };
 
-userschç.methods.validPassword = function(password){
+userschema.methods.validPassword = function(password){
   return bcrypt.compareSync(password, this.password);
 };
 
 
-module.exports = mongoose.model('User',schema);
+module.exports = mongoose.model('User',userschema);
 

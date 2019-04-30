@@ -9,6 +9,7 @@ var expresshandebelbars = require('express-handlebars');
 var mogoose = require('mongoose');
 var session = require('express-session');
 var app = express();
+var flash = require('connect-flash');
 
 
 mogoose.connect('mongodb://213.202.228.115:27017/shopping').then(() => {
@@ -21,6 +22,7 @@ require('./config/passport'); //only loading
 
 
 // view engine setup
+app.use(flash());
 app.engine('.hbs',expresshandebelbars({defaultLayout:'layout',extname:'.hbs'}));
 app.set('view engine', '.hbs');
 app.use(passport.initialize());
@@ -30,7 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({secret:'secret',resave: false, saveUninitialized: false}));
-app.use(flash());
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
