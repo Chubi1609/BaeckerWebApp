@@ -1,0 +1,28 @@
+    {{>slideshow}}
+<div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+        <div id="success" class="alert alert-success" {{#if noMessages}}hidden{{/if}}>
+            {{ successMsg }}
+        </div>
+    </div>
+</div>
+
+
+
+
+{{#each products}}
+<div class="row justify-content-center">
+    {{#each this}}
+    
+        <div class="card" style="width: 18rem; margin:10px;">
+            <img class="card-img-top"style="width:100% height: auto" src="{{this.imagePath}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+                <p class="card-text" style="font-size: 2vw;">{{this.description}}</p>
+              <a href="/add-to-cart/{{this._id}}" class="btn btn-success pull-right" role="button">Add to Shopping Cart</a>
+            </div>
+        </div>
+    
+    {{/each}}
+</div>
+{{/each}}

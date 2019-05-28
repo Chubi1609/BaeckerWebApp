@@ -10,9 +10,9 @@ var mogoose = require('mongoose');
 var session = require('express-session');
 var app = express();
 var flash = require('connect-flash');
-
-
-mogoose.connect('mongodb://213.202.228.115:27017/shopping').then(() => {
+var validator = require('express-validator');
+var bodyParser = require('body-parser');
+mogoose.connect('mongodb://localhost:27017/shopping').then(() => {
 console.log("Connected to Database");
 }).catch((err) => {
     console.log("Not Connected to Database ERROR! ", err);
@@ -28,6 +28,9 @@ app.set('view engine', '.hbs');
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(validator());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

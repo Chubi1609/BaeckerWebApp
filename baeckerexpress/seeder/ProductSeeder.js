@@ -1,6 +1,6 @@
 var Product = require('../models/product');
 var mogoose = require('mongoose');
-mogoose.connect('mongodb://213.202.228.115:27017/shopping').then(() => {
+mogoose.connect('mongodb://localhost/shopping').then(() => {
 console.log("Connected to Database");
 }).catch((err) => {
     console.log("Not Connected to Database ERROR! ", err);
@@ -31,13 +31,19 @@ var   products = [
       title: 'Muffin',
       description: 'lorem',
       price: 10
+    }),
+    new Product({
+      imagePath: 'https://thebusybaker.ca/wp-content/uploads/2018/08/best-ever-greek-yogurt-chocolate-chip-muffins-fbig3.jpg',
+      title: 'Keks',
+      description: 'lorem',
+      price: 10
     })
 ];
 
 
 var done = 0;
 for(var i = 0; i < products.length; i++){
-
+  console.log("done");
       products[i].save(function(err,result){
         console.log(err + " " + result);
           done++;

@@ -1,0 +1,77 @@
+{{# if products }}
+<div class="card">
+<table class="table table-hover shopping-cart-wrap">
+<thead class="text-muted">
+<tr>
+  <th scope="col" width="20"></th>
+  <th scope="col" width="120">Product</th>
+  <th scope="col" width="20">Quantity</th>
+  <th scope="col" width="120">Price</th>
+  <th scope="col" width="200" class="text-right">Action</th>
+</tr>
+</thead>
+
+<tbody>
+    {{# each products }}
+<tr>
+	<td>
+
+	<div class="img-wrap"><img src="{{ this.item.imagePath }}" class="col-xs-3 col-sm-2"></div>
+	</td>
+    
+    <td>	<h6 class="title text-truncate">{{this.item.title}}</h6></td>
+	
+
+
+
+	<td> 
+		<select class="form-control">
+			<option>1</option>
+			<option>2</option>	
+			<option>3</option>	
+			<option>4</option>	
+		</select> 
+	</td>
+	<td> 
+		<div class="price-wrap"> 
+			<var class="price">{{ this.item.price }}</var> 
+	
+		</div>
+	</td>
+	<td class="text-right">  
+	<a href="/remove/{{this.item._id}}" class="btn btn-outline-danger"> × Remove</a>
+	</td>
+</tr>
+   {{/each}}
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td> <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3 pull-right">
+            <strong>Total: {{ totalPrice }}</strong>
+        </div></td>    
+   
+</tbody>
+</table>
+</div> 
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3 pull-right ">
+            <a href="/checkout" type="button" class="btn btn-success pull-right">Checkout</a>
+        </div>
+    </div>
+{{ else }}
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+            <h2>No Items in Cart</h2>
+        </div>
+    </div>
+{{/if}}
+
+
+
+
