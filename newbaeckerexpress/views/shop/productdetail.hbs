@@ -1,3 +1,25 @@
-{{product.title}}
-{{title}}
-{{product}}
+<div class="clearfix">
+  <img src="{{product.imagePath}}"  class="img-fluid float-left"  alt="Responsive Image" width="307" height="240" /> 
+  <h1>{{product.title}}</h1>
+  {{product.price}}
+  <br>
+
+
+<form action="/add-to-cart" method="post">
+    <div class="form-group">
+        <label for="sel1">Select list:</label>
+        <select class="form-control" id="sel1" name="sel1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            
+        </select>
+        <input type="hidden" id="id" name="id" value={{product.id}}>
+  <input  class="btn btn-success pull-right" type="submit"></input>
+
+  </div>
+</form>
+{{product.description}}
+
+</div>
